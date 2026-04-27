@@ -15,7 +15,6 @@ agentic-ai-using-php-symfony/
 ├── docker-compose.yml
 └── project/
 
-
 ## 🚀 Setup Instructions
 
 ### 1. Clone the repository
