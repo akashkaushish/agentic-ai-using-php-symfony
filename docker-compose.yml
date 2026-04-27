@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: build/app/Dockerfile
+    container_name: ${APP_CONTAINER_NAME}
+    volumes:
+      - ./project:/var/www/project
+    working_dir: /var/www/project
+
+  nginx:
+    image: nginx:latest
+    container_name: ${NGINX_CONTAINER_NAME}
+    ports:
+      - "${NGINX_PORT}:80"
+    volumes:
+      - ./project:/var/www/project
+      - ./build/app/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+  db:
+    image: mariadb:11
+    container_name: ${DB_CONTAINER_NAME}
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./build/db/orm/init-scripts:/docker-entrypoint-initdb.d
+
+volumes:
+  db_data:

@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS agentic_ai_test;
+GRANT ALL PRIVILEGES ON agentic_ai_test.* TO 'user'@'%';
+FLUSH PRIVILEGES;
