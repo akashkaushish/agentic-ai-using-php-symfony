@@ -2,7 +2,9 @@
 
 This project is a Docker-based Symfony 7 backend application designed to build and experiment with Agentic AI concepts.
 
+---
 ## 🧱 Project Structure
+
 agentic-ai-using-php-symfony/
 ├── build/
 │ ├── app/
@@ -17,14 +19,20 @@ agentic-ai-using-php-symfony/
 ## 🚀 Setup Instructions
 
 ### 1. Clone the repository
+``` Bash
 git clone <repo-url>
 cd agentic-ai-using-php-symfony
+```
 
 ### 2. Start Docker
+``` Bash
 docker compose up -d --build
+```
 
 ### 3. Install Symfony
+``` Bash
 docker compose exec app composer create-project symfony/skeleton .
+```
 
 ### 4. Configure Database
 
@@ -32,7 +40,9 @@ Update `.env` inside `/project`:
 DATABASE_URL="mysql://symfony:symfony@db:3306/agentic_ai_test?serverVersion=11.0.0-MariaDB&charset=utf8mb4"
 
 ### 5. Test Symfony
+``` Bash
 docker compose exec app php bin/console about
+```
 
 Open in browser:
 http://localhost:8080
