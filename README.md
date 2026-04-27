@@ -4,7 +4,7 @@ This project is a Docker-based Symfony 7 backend application designed to build a
 
 ---
 ## 🧱 Project Structure
-
+```
 agentic-ai-using-php-symfony/
 ├── build/
 │ ├── app/
@@ -14,7 +14,7 @@ agentic-ai-using-php-symfony/
 │ └── orm/init-scripts/
 ├── docker-compose.yml
 └── project/
-
+```
 ## 🚀 Setup Instructions
 
 ### 1. Clone the repository
