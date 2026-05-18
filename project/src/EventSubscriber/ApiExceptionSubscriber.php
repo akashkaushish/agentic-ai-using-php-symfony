@@ -30,7 +30,10 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
         $exception = $event->getThrowable();
 
         $statusCode = 500;
-        $message = 'Internal server error';
+        //$message = 'Internal server error';
+        $message = $_ENV['APP_ENV'] === 'dev'
+                ? $exception->getMessage()
+                : 'Internal server error';
 
         if ($exception instanceof NotFoundHttpException) {
             $statusCode = 404;
